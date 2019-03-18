@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forum</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="general.html :: header"> </div>
+<div th:replace="general.html :: statistics"> </div>
+<div th:if="${user != null}">
+    <div th:replace="general.html :: user-info"> </div>
+</div>
+<div th:unless="${user != null}">
+    <div th:replace="general.html :: login "> </div>
+</div>
+<div th:if = "${user != null}">
+        <div class="topic">
+            <input type="button" value="New Topic" onmousedown="viewDiv()">
+             <div id="form-topic">
+               <form th:action="@{/createTopic}" method="post">
+               <div> <label>The name of the topic</label>
+                <input type="text" name="nameTopic" minlength="10", maxlength="50">
+               </div>
+                   <div>
+                   <label>Discription </label>
+                   <textarea name="discription" cols="40" rows="5" maxlength="200" minlength="50"></textarea>
+                   <input class="submit"  type = "submit" value="Create">
+                   </div>
+                </form>
+             </div>
+        </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+<script>
+    function viewDiv(){
+        document.getElementById("form-topic").style.display = "block";
+    };
+</script>
+
+
+</html>
+</html>

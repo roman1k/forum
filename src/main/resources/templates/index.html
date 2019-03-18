@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Forum</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div th:replace="general.html :: header "> </div>
+    <div th:if="${user != null}">
+        <div th:replace="general.html :: user-info"> </div>
+    </div>
+    <div th:unless="${user != null}">
+        <div th:replace="general.html :: login "> </div>
+    </div>
+    <div th:replace="general.html :: statistics "> </div>
+
+    <div class="topic">
+    <label>themes:</label>
+    <ul>
+                <li th:each="theme: ${themes}" class="li_t">
+                    <a th:href= "'http://localhost:8080/theme/'+${theme.getId()}">
+                        <div th:text="${theme.getNameTheme()}"></div>
+                    </a>
+                    <span th:text="${theme.getAuthor()}" class="li_t"></span>
+                </li>
+</ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+</html>
+</html>

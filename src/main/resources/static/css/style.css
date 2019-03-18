@@ -1,0 +1,160 @@
+body {
+
+	position:relative;
+	font-weight:300;
+	font-size: 13px;
+	line-height: 20px;
+	color: #666;
+	background: aliceblue;
+	height: 100%;
+}
+
+.logo {
+
+	text-align: center;
+
+}
+.logo a {
+
+	text-transform:uppercase;
+	line-height:80px;
+	font-size:26px;
+	color:#333;
+}
+.logo a span {
+	display:inline-block;
+	padding-right:38px;
+}
+.logo a span.b1 {font-weight:900;}
+.logo a span.b2 {font-weight:700;}
+.logo a span.b3 {font-weight:400;}
+.logo a span.b4 {font-weight:300;}
+.logo a span.b5 {font-weight:100;}
+
+
+.menu-main li {display: inline-block;}
+.menu-main li:after {
+
+	content: "|";
+	color: #1c1c1c;
+	display: inline-block;
+	vertical-align:top;
+}
+.menu-main li:last-child:after {content: none;}
+.menu-main a {
+
+	text-decoration: none;
+	font-family: sans-serif;
+	letter-spacing: 2px;
+	padding-bottom: 20px;
+	margin: 0 34px 0 30px;
+	font-size: 17px;
+	text-transform: uppercase;
+	display: inline-block;
+	transition: color .2s;
+}
+
+#label{
+	margin-right: 60px;
+	padding: 5px;
+	float: right;
+	font-size: large;
+}
+
+.login{
+	padding: 3px;
+	margin-top: 50px;
+	margin-right: 50px;
+	float: right;
+}
+
+.loginField{
+	margin-bottom: 5px;}
+
+.submit{
+	float: left;
+	padding: 10px;
+
+}
+.submit a:hover {
+    text-decoration: none;
+}
+
+#search-form form {
+	position:relative;
+	height:40px;
+	right: 10%;
+	float: right;
+	padding-left:49px;
+	border-left:1px solid #ccc;
+	font-family: FontAwesome;
+}
+
+#label2{
+
+	font-size: large;
+	float: top;
+
+}
+
+.statistic{
+	padding: 10px;
+	float: left;
+}
+.menu-statistic{
+	padding: -1px;
+}
+
+.topic{
+    font-size: 250%;
+	display: inline-block;
+	text-decoration: none;
+	margin: 1% 10%;
+
+}
+
+.li_t{
+    width: 60%;
+    padding: 10px;
+	text-align: center;
+	border: 1px #1c1c1c solid;
+}
+
+
+#form-topic{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

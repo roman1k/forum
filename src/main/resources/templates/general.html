@@ -1,0 +1,68 @@
+!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <link rel="stylesheet" href="../css/style.css">
+    <body>
+
+        <div th:fragment="header">
+            <div class="container clearfix">
+                <div class="logo">
+                    <a href="index.html" ><span class="b1">f</span><span class="b2">o</span><span class="b3">r</span><span class="b4">u</span><span class="b5">m</span></a>
+                </div>
+                <div id="search-form" class="pull-right">
+                    <form method="get" action="#">
+                        <div id ="label2"><label>Search</label></div>
+                        <input type="text" name="Search" maxlength="30" value="" />
+                    </form>
+                </div>
+                <ul class="menu-main">
+                    <li><a href="">Головна</a></li>
+                    <li><a href="">Тема</a></li>
+                    <li><a href="">Топік</a></li>
+                </ul>
+            </div>
+        </div>
+        <div th:fragment="login"  class="login">
+            <form th:action="@{/login}" method="POST">
+                  <div class="loginField">
+                        <label>Login</label>
+                        <input type="text" name="username" placeholder="enter your login">
+                  </div>
+                  <div class="loginField">
+                        <label>Password</label>
+                        <input type="password"  name="password" placeholder="enter your password">
+                  </div>
+                <div>
+                    <input class="submit"  type = "submit" value="Log in">
+                </div>
+            </form>
+            <div>
+                <button class="submit a:hover">
+                    <a th:href="@{'/registration'}">Sing in</a>
+                </button>
+            </div>
+        </div>
+        <div th:fragment="user-info" class="login">
+            <div class="loginField">
+                <label>Hello! </label>
+                <div th:text="${user.getUsername()}"> </div>
+            </div>
+        </div>
+
+        <div th:fragment="statistics" class="statistic">
+
+            <label>statistics:</label>
+            <ul class="menu-statistic">
+                <li>Number of themes</li>
+                <li>Number of topics </li>
+                <li>Number of  users</li>
+            </ul>
+
+        </div></div>
+
+
+    </body>
+    </html>
