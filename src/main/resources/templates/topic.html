@@ -23,12 +23,9 @@
     <div class="topic">
         <input type="button" value="New Topic" onmousedown="viewDiv()">
         <div id="form-topic">
-            <form th:action="@{/createTopic}" method="post">
-                <div> <label>The name of the topic</label>
-                    <input type="text" name="nameTopic" minlength="10", maxlength="50">
-                </div>
+            <form th:action="@{/newComment}" method="post">
                 <div>
-                    <label>Discription </label>
+                    <label>Comment</label>
                     <textarea name="discription" cols="40" rows="5" maxlength="200" minlength="50"></textarea>
                     <input class="submit"  type = "submit" value="Create">
                 </div>
