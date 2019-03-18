@@ -2,8 +2,10 @@ package com.krymymiuk.forum.controller;
 
 import com.krymymiuk.forum.model.Theme;
 
+import com.krymymiuk.forum.model.Topic;
 import com.krymymiuk.forum.model.User;
 import com.krymymiuk.forum.service.ThemeService;
+import com.krymymiuk.forum.service.TopicService;
 import com.krymymiuk.forum.service.UserService;
 import com.krymymiuk.forum.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
@@ -15,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,6 +28,8 @@ public class UserController {
     UserService userService;
     @Autowired
     ThemeService themeService;
+    @Autowired
+    TopicService topicService;
 
 
     @PostMapping("/newUser")
@@ -48,6 +51,16 @@ public class UserController {
         model.addAttribute("themes", themes);
         model.addAttribute("user", user);
         return "index.html";
+    }
+    @PostMapping("/createTopic")
+    public String createTopic(@AuthenticationPrincipal User user,
+                              Model model,
+                              String nameTheme,
+                              String nameTopic,
+                              String description){
+        topicService.createTopic(nameTheme, user, nameTopic, description);
+        int id = topicService.findByNameTopic(nameTopic).getId();
+        return "redirect:topic/"+id;
     }
 }
 

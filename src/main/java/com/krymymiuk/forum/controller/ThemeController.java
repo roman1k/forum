@@ -1,5 +1,6 @@
 package com.krymymiuk.forum.controller;
 
+import com.krymymiuk.forum.model.Theme;
 import com.krymymiuk.forum.model.User;
 import com.krymymiuk.forum.service.ThemeService;
 import com.krymymiuk.forum.service.TopicService;
@@ -26,7 +27,8 @@ public class ThemeController {
     @GetMapping("{idTheme}")
     public String getTheme(@PathVariable int idTheme,Model model, @AuthenticationPrincipal User user){
         model.addAttribute("user", user);
-
+        Theme theme = themeService.findById(idTheme);
+        model.addAttribute("theme", theme);
         return "theme.html";
     }
 }

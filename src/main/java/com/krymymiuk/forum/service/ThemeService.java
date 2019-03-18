@@ -9,4 +9,5 @@ public interface ThemeService {
     void createTheme(String name, User user);
     List allThemes();
     Theme findByNameTheme(String name);
+    Theme findById(int id);
 }

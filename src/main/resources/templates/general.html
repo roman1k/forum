@@ -31,8 +31,13 @@
                     </form>
                 </div>
                 <ul class="menu-main">
-                    <li><a href="">Головна</a></li>
-                    <li><a href="">Тема</a></li>
+                    <li><a href=" http://localhost:8080">Головна</a></li>
+
+                    <li th:if="${theme != null}">
+                        <a th:href= "'http://localhost:8080/theme/'+${theme.getId()}">
+                             <div th:text="${theme.getNameTheme()}" name="nameTheme"></div>
+                        </a>
+                    </li>
                     <li><a href="">Топік</a></li>
                 </ul>
             </div>
