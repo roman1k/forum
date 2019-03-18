@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AdminController {
     @Autowired
-    ThemeService themeService;
+    private ThemeService themeService;
 
     @PostMapping("/createTheme")
     public String createTheme(String nameTheme, @AuthenticationPrincipal User user){

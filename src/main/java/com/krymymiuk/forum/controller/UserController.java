@@ -1,8 +1,6 @@
 package com.krymymiuk.forum.controller;
 
 import com.krymymiuk.forum.model.Theme;
-
-import com.krymymiuk.forum.model.Topic;
 import com.krymymiuk.forum.model.User;
 import com.krymymiuk.forum.service.ThemeService;
 import com.krymymiuk.forum.service.TopicService;
@@ -25,11 +23,11 @@ import java.util.List;
 public class UserController {
     private static Logger logger = LogManager.getLogger(UserServiceImpl.class);
     @Autowired
-    UserService userService;
+    private UserService userService;
     @Autowired
-    ThemeService themeService;
+    private ThemeService themeService;
     @Autowired
-    TopicService topicService;
+    private TopicService topicService;
 
 
     @PostMapping("/newUser")

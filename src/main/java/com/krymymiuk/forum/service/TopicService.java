@@ -6,6 +6,6 @@ import com.krymymiuk.forum.model.User;
 
 public interface TopicService {
     void createTopic(String themeName, User user, String name, String description);
-
+    Topic  findById(int id);
     Topic findByNameTopic(String nameTopic);
 }

@@ -1,6 +1,7 @@
 package com.krymymiuk.forum.controller;
 
 import com.krymymiuk.forum.model.Theme;
+import com.krymymiuk.forum.model.Topic;
 import com.krymymiuk.forum.model.User;
 import com.krymymiuk.forum.service.ThemeService;
 import com.krymymiuk.forum.service.TopicService;
@@ -13,22 +14,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+import java.util.Set;
+
 
 @Controller
 @RequestMapping("theme/")
 public class ThemeController {
     @Autowired
-    ThemeService themeService;
+    private ThemeService themeService;
     @Autowired
-    TopicService topicService;
+    private TopicService topicService;
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @GetMapping("{idTheme}")
     public String getTheme(@PathVariable int idTheme,Model model, @AuthenticationPrincipal User user){
         model.addAttribute("user", user);
         Theme theme = themeService.findById(idTheme);
         model.addAttribute("theme", theme);
+        Set<Topic> topics = theme.getTopic();
+        model.addAttribute("topics", topics);
         return "theme.html";
     }
 }

@@ -3,6 +3,7 @@ package com.krymymiuk.forum.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "themes")
@@ -16,6 +17,8 @@ public class Theme {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)
     private User author;
+    @OneToMany(mappedBy = "theme", cascade = CascadeType.ALL, orphanRemoval = true )
+    private Set<Topic> topic;
 
     public Theme() {
     }
@@ -56,6 +59,14 @@ public class Theme {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public Set<Topic> getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Set<Topic> topic) {
+        this.topic = topic;
     }
 
     @Override

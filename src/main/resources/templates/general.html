@@ -22,7 +22,7 @@
     <div th:fragment="header">
             <div class="container clearfix">
                 <div class="logo">
-                    <a href="index.html" ><span class="b1">f</span><span class="b2">o</span><span class="b3">r</span><span class="b4">u</span><span class="b5">m</span></a>
+                    <a href="" ><span class="b1">f</span><span class="b2">o</span><span class="b3">r</span><span class="b4">u</span><span class="b5">m</span></a>
                 </div>
                 <div id="search-form" class="pull-right">
                     <form method="get" action="#">
@@ -35,10 +35,14 @@
 
                     <li th:if="${theme != null}">
                         <a th:href= "'http://localhost:8080/theme/'+${theme.getId()}">
-                             <div th:text="${theme.getNameTheme()}" name="nameTheme"></div>
+                             <div th:text="${theme.getNameTheme()}"></div>
                         </a>
                     </li>
-                    <li><a href="">Топік</a></li>
+                    <li th:if="${topic!= null}">
+                        <a th:href= "'http://localhost:8080/topic/'+${topic.getId()}">
+                            <div th:text="${topic.getNameTopic()}"></div>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

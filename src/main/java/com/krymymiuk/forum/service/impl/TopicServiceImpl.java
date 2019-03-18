@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class TopicServiceImpl implements TopicService {
     @Autowired
-    TopicDAO topicDAO;
+    private TopicDAO topicDAO;
     @Autowired
-    ThemeService themeService;
+    private ThemeService themeService;
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Override
     public void createTopic(String themeName, User user, String name, String description) {
@@ -25,6 +25,11 @@ public class TopicServiceImpl implements TopicService {
         User author =userService.findByUsername(user.getUsername());
         Topic topic = new Topic(theme, name, description, author);
         topicDAO.save(topic);
+    }
+
+    @Override
+    public Topic findById(int id) {
+        return topicDAO.findById(id);
     }
 
     @Override

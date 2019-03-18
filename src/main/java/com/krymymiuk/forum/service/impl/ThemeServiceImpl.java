@@ -14,9 +14,9 @@ import java.util.List;
 @Service
 public class ThemeServiceImpl implements ThemeService {
     @Autowired
-    ThemeDAO themeDAO;
+    private ThemeDAO themeDAO;
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Override
     public void createTheme(String name, User user) {

@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class GeneralController {
     @Autowired
-    UserService userService;
+    private UserService userService;
     @Autowired
-    ThemeService themeService;
+    private ThemeService themeService;
     @Autowired
-    TopicDAO topicDAO;
+    private TopicDAO topicDAO;
     @Autowired
-    CommentService commentService;
+    private CommentService commentService;
 
     @GetMapping("/getStatistics")
     public void getStatistics(Model model){
@@ -30,4 +30,14 @@ public class GeneralController {
     private String successURL() {
         return "redirect:/";
     }
+
+    @GetMapping("/login")
+    private String login() {
+        return "redirect:/";
+    }
+    @GetMapping("/login?error")
+    private String error() {
+        return "redirect:/";
+    }
+
 }

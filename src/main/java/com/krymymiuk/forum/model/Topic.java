@@ -36,6 +36,10 @@ public class Topic {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNameTopic() {
         return nameTopic;
     }
@@ -50,6 +54,30 @@ public class Topic {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     @Override
@@ -79,6 +107,3 @@ public class Topic {
                 '}';
     }
 }
-
-
-

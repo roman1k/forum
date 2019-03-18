@@ -18,13 +18,12 @@ import java.util.UUID;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    MailSender mailSender;
-
+    private MailSender mailSender;
     private static Logger logger = LogManager.getLogger(UserServiceImpl.class);
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
     @Autowired
-    UserInfoDAO userInfoDAO;
+    private UserInfoDAO userInfoDAO;
     @Autowired
     private PasswordEncoder passwordEncoder;
 

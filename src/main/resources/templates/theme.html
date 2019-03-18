@@ -26,11 +26,12 @@
              <div id="form-topic">
                <form th:action="@{/createTopic}" method="post">
                <div> <label>The name of the topic</label>
-                <input type="text" name="nameTopic" minlength="10", maxlength="50">
+                   <input type="hidden" name="nameTheme" th:value="${theme.getNameTheme()}">
+                    <input type="text" name="nameTopic" minlength="10", maxlength="50">
                </div>
                    <div>
-                   <label>Discription </label>
-                   <textarea name="discription" cols="40" rows="5" maxlength="200" minlength="20"></textarea>
+                   <label>Description </label>
+                   <textarea name="description" cols="40" rows="5" maxlength="200" minlength="20"></textarea>
                    <input class="submit"  type = "submit" value="Create">
                    </div>
                 </form>
@@ -40,11 +41,11 @@
 
 <div class="topic ">
     <label>Topic:</label>
-    <div th:each="topic: ${topic}" >
+    <div th:each="topic: ${topics}" >
         <div th:text="${topic.getAuthor().getUsername()}" class="column left"></div>
         <div class="column middle">
-            <a th:href= "'http://localhost:8080/theme/'+${topic.getId()}">
-                <div th:text="${topic.getTopicName()}" ></div>
+            <a th:href= "'http://localhost:8080/topic/'+${topic.getId()}">
+                <div th:text="${topic.getNameTopic()}"></div>
             </a>
         </div>
 
