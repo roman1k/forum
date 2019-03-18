@@ -36,6 +36,22 @@
              </div>
         </div>
 </div>
+
+<div class="topic ">
+    <label>Topic:</label>
+    <div th:each="topic: ${topic}" >
+        <div th:text="${topic.getAuthor().getUsername()}" class="column left"></div>
+        <div class="column middle">
+            <a th:href= "'http://localhost:8080/theme/'+${topic.getId()}">
+                <div th:text="${topic.getTopicName()}" ></div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

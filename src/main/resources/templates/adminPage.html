@@ -12,9 +12,9 @@
 </head>
 <body>
 <div th:replace="general.html :: header "> </div>
-<div th:replace="general.html :: user-info"> </div>
-<div th:replace="general.html :: login "> </div>
+<div th:replace="general.html :: authentication"> </div>
 <div th:replace="general.html :: statistics "> </div>
+
 <form th:action="@{/createTheme}" method="post">
     <div>
         <label>The name of the topic</label>

@@ -13,12 +13,8 @@
 <body>
 <div th:replace="general.html :: header"> </div>
 <div th:replace="general.html :: statistics"> </div>
-<div th:if="${user != null}">
-    <div th:replace="general.html :: user-info"> </div>
-</div>
-<div th:unless="${user != null}">
-    <div th:replace="general.html :: login "> </div>
-</div>
+<div th:replace="general.html :: authentication"> </div>
+
 <div th:if = "${user != null}">
     <div class="topic">
         <input type="button" value="New Topic" onmousedown="viewDiv()">

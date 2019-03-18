@@ -9,6 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -23,8 +24,9 @@ public class ThemeController {
     UserService userService;
 
     @GetMapping("{idTheme}")
-    public String getTheme(Model model, @AuthenticationPrincipal User user){
+    public String getTheme(@PathVariable int idTheme,Model model, @AuthenticationPrincipal User user){
         model.addAttribute("user", user);
+
         return "theme.html";
     }
 }

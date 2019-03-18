@@ -26,9 +26,9 @@ public class Security extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().sameOrigin();
         http
                 .authorizeRequests()
-                .antMatchers("/", "/images/**", "/css/**", "/registration", "/newPhotograph","/newUser", "/activate/**" ,"/formLogin", "/general", "/theme/**")
+                .antMatchers("/", "/images/**", "/css/**", "/registration", "/activate/**" ,"/formLogin", "/general", "/theme/**")
                 .permitAll()
-                .antMatchers("/admin1/**", "/admin").hasRole("ADMIN")
+                .antMatchers("/admin1/**", "/admin1").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

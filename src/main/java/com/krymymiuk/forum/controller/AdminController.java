@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AdminController {
     @Autowired
     ThemeService themeService;
+
     @PostMapping("/createTheme")
     public String createTheme(String nameTheme, @AuthenticationPrincipal User user){
         themeService.createTheme(nameTheme,user);
-        return "redirect:/";
+        int id = themeService.findByNameTheme(nameTheme).getId();
+        return "redirect:/theme/" + id;
 
     }
 

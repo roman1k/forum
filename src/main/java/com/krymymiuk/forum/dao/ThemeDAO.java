@@ -8,5 +8,7 @@ import java.util.Set;
 
 public interface ThemeDAO extends JpaRepository<Theme, Integer> {
     List <Theme> findAllByOrderByCreateDate();
+    Theme  findByNameTheme(String name);
+    Theme findById(int id);
     int countThemesBy();
 }

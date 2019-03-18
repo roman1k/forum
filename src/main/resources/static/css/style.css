@@ -106,11 +106,10 @@ body {
 }
 
 .topic{
-    font-size: 250%;
+    font-size: 180%;
 	display: inline-block;
 	text-decoration: none;
-	margin: 1% 10%;
-
+	margin: 1% 5%;
 }
 
 .li_t{
@@ -125,7 +124,27 @@ body {
     display: none;
 }
 
+.column {
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
+.left, .right {
+    width: 20%;
+
+}
+
+.middle {
+    width: 80%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    box-sizing: border-box;
+}
 
 
 

@@ -34,4 +34,9 @@ public class ThemeServiceImpl implements ThemeService {
         return  themes;
     }
 
+    @Override
+    public Theme findByNameTheme(String name) {
+        return themeDAO.findByNameTheme(name);
+    }
+
 }

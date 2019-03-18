@@ -52,9 +52,7 @@ public class UserServiceImpl implements UserService {
             UserInfo userInfo = new UserInfo();
             userInfo.setEmail(email);
             user.setUserInfo(userInfo);
-            logger.error("________________________________________");
             userDAO.save(user);
-            logger.error("++++++++++++++++++++++++++++++++++++");
             String message = String.format(
                     "Hello, %s! \n" +
                             " Please, visit next link: http://localhost:8080/activate/%s",
@@ -78,7 +76,6 @@ public class UserServiceImpl implements UserService {
         userDAO.save(user);
         return true;
     }
-
     @Override
     public User findByUsername(String username) {
         return userDAO.findByUsername(username);
