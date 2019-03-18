@@ -2,20 +2,17 @@ package com.krymymiuk.forum.service.impl;
 
 import com.krymymiuk.forum.dao.UserDAO;
 import com.krymymiuk.forum.dao.UserInfoDAO;
-import com.krymymiuk.forum.model.Role;
 import com.krymymiuk.forum.model.User;
 import com.krymymiuk.forum.model.UserInfo;
 import com.krymymiuk.forum.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.net.URLEncoder;
 import java.util.UUID;
 
 @Service
