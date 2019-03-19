@@ -1,5 +1,8 @@
 package com.krymymiuk.forum.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -12,14 +15,17 @@ public class Topic {
     private int id;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "theme_id", nullable = false)
+    @JsonBackReference
     private Theme theme;
     @Column( nullable = false, unique = true)
     private  String nameTopic;
     private  String description;
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true )
+    @JsonManagedReference
     private Set<Comment> comments;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "autor_id", nullable = false)
+    @JsonBackReference
     private User author;
 
     public Topic() {

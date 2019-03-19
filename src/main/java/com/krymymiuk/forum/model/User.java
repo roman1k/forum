@@ -1,5 +1,7 @@
 package com.krymymiuk.forum.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,12 +22,16 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonBackReference
     private UserInfo userInfo;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true )
+    @JsonManagedReference
     private Set<Theme>  themes;
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true )
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Set<Comment>  comments;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true )
+    @JsonManagedReference
     private Set<Topic>  topics;
     private String activationCode;
     private boolean isAccountNonExpired;

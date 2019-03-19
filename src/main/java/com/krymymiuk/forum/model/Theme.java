@@ -1,5 +1,8 @@
 package com.krymymiuk.forum.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -16,8 +19,10 @@ public class Theme {
     private LocalDate createDate;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
     private User author;
     @OneToMany(mappedBy = "theme", cascade = CascadeType.ALL, orphanRemoval = true )
+    @JsonManagedReference
     private Set<Topic> topic;
 
     public Theme() {

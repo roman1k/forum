@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,24 +13,80 @@
 <div th:replace="general.html :: header"> </div>
 <div th:replace="general.html :: statistics"> </div>
 <div th:replace="general.html :: authentication"> </div>
-
 <div th:if = "${user != null}">
     <div class="topic">
         <input type="button" value="new comment" onmousedown="viewDiv()">
         <div id="form-topic">
-            <form th:action="@{/newComment}" method="post">
                 <div>
                     <label>Comment</label>
-                    <textarea name="description" cols="40" rows="5" maxlength="200" minlength="50"></textarea>
-                    <input class="submit"  type = "submit" value="Create">
+                    <input th:value="${topic.getNameTopic()}" type="hidden" id="nameTopic">
+                    <textarea  id="textComment" name="description" cols="40" rows="5" maxlength="200" minlength="20"></textarea>
+                    <button  id="newComment" class="submit"  type = "submit" >Send</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<div th:text="${topic.getDescription()}"> </div>
+<div id="showComments"></div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script>
+    $(document).ready(function(){
+        let nameTopic = $("#nameTopic").val();
+        console.log(nameTopic + );
+        $.ajax({
+            url: "/showComments/",
+            type: 'GET',
+            data: {nameTopic},
+            dataType: 'json',
+
+            success:
+                function (response) {
+                    console.log(response)
+                    for (const singleComment of response) {
+                        let present = $('<div/>',{
+                            text:  singleComment.text
+                        });
+                        $("#showComments").append(present);
+                    }
+                },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    });
+</script>
+<script>
+    $("#newComment").click(function (event) {
+        $("#showComments").empty();
+        let nameTopic = $("#nameTopic").val();
+        let textComment = $("#textComment").val();
+
+        $.ajax({
+            url: "/newComment/",
+            type: 'POST',
+            data: {nameTopic, textComment},
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success:
+                function (response) {
+                    console.log(response)
+                    for (const singleComment of response) {
+                        let present = $('<div/>',{
+                            text:  singleComment.getText()
+                        });
+                        $("#showComments").append(present);
+                    }
+                },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    });
+
+</script>
+
 </body>
-</html>
 </html>

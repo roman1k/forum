@@ -23,10 +23,10 @@ public class Security extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.headers().frameOptions().sameOrigin();
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/images/**", "/css/**", "/registration", "/newUser","/activate/**" ,"/formLogin", "/general", "/theme/**", "/topic/**")
+                .antMatchers("/", "/images/**", "/css/**", "/registration", "/newUser","/activate/**" ,"/formLogin", "/general", "/theme/**", "/topic/**", "/showComments")
                 .permitAll()
                 .antMatchers("/admin1/**", "/admin1").hasRole("ADMIN")
                 .anyRequest().authenticated()

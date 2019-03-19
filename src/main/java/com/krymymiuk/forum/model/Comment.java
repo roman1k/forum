@@ -1,5 +1,7 @@
 package com.krymymiuk.forum.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,16 +17,21 @@ public class Comment {
     private LocalDate createData;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
     private User author;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "topic_id", nullable = false)
+    @JsonBackReference
     private Topic topic;
 
     public Comment() {
     }
 
-    public Comment(String text) {
+    public Comment(String text, User author, Topic topic) {
         this.text = text;
+        this.createData = LocalDate.now();
+        this.author = author;
+        this.topic = topic;
     }
 
     public int getId() {

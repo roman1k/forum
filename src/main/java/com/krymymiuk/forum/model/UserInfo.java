@@ -1,11 +1,14 @@
 package com.krymymiuk.forum.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "users_infos")
+@Table(name = "users_info")
 public class UserInfo {
     @Id
     private int id;
@@ -15,6 +18,7 @@ public class UserInfo {
     private String email;
     @OneToOne
     @MapsId
+    @JsonManagedReference
     private User user;
 
     public UserInfo() {
