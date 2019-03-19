@@ -34,7 +34,7 @@
 <script>
     $(document).ready(function(){
         let nameTopic = $("#nameTopic").val();
-        console.log(nameTopic + );
+        console.log(nameTopic);
         $.ajax({
             url: "/showComments/",
             type: 'GET',
@@ -75,7 +75,7 @@
                     console.log(response)
                     for (const singleComment of response) {
                         let present = $('<div/>',{
-                            text:  singleComment.getText()
+                            text:  singleComment.text
                         });
                         $("#showComments").append(present);
                     }
