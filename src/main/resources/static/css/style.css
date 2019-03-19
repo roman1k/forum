@@ -109,7 +109,8 @@ body {
     font-size: 180%;
 	display: inline-block;
 	text-decoration: none;
-	margin: 1% 5%;
+	margin: 1% 1%;
+	width: 60%;
 }
 
 .li_t{
@@ -128,15 +129,17 @@ body {
     float: left;
     padding: 10px;
     box-sizing: border-box;
+	margin: 0 auto;
 }
 
 .left, .right {
     width: 20%;
-
+	border: 1px #1c1c1c solid;
 }
 
 .middle {
     width: 80%;
+	border: 1px #1c1c1c solid;
 }
 
 .row:after {

@@ -24,4 +24,5 @@ function sendComment(){
             console.log(err)
         }
     })
+    document.getElementById("form-topic").style.display = "none";
 };

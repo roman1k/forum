@@ -17,12 +17,14 @@
 <div th:replace="general.html :: statistics"> </div>
 
     <div class="topic ">
-    <label>themes:</label>
+        <label class="column left">author:</label>
+        <label class="column middle">themes:</label>
+
         <div th:each="theme: ${themes}" >
                     <div th:text="${theme.getAuthor().getUsername()}" class="column left"></div>
                     <div class="column middle">
                         <a th:href= "'http://localhost:8080/theme/'+${theme.getId()}">
-                        <div th:text="${theme.getNameTheme()}" ></div>
+                        <div th:text="${theme.getNameTheme()}" class="column middle"></div>
                     </a>
                     </div>
 
