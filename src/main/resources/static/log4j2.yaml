@@ -11,8 +11,8 @@ Properties:
 Appenders:
   RollingFile:
   - name: RollingFile_AppenderAll
-    fileName: log-path/rollingfileAll.log
-    filePattern: /rollingfileAll.log
+    fileName: log-path/rollingFileAll.log
+    filePattern: /rollingFileAll.log
     PatternLayout:
       Pattern: "%highlight{%-5level} %style{%date{yyyy-MM-dd
           HH:mm:ss.SSS}} %class{1}:%L - %highlight{%msg} %xEx{short}%n"

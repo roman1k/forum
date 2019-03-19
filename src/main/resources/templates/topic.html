@@ -7,7 +7,9 @@
     <title>Forum</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../js/script-theme.js"></script>
+    <script src="../js/block-form.js"></script>
+    <script src="../js/show-comments.js"></script>
+    <script src="../js/add-comment.js"></script>
 </head>
 <body>
 <div th:replace="general.html :: header"> </div>
@@ -21,7 +23,7 @@
                     <label>Comment</label>
                     <input th:value="${topic.getNameTopic()}" type="hidden" id="nameTopic">
                     <textarea  id="textComment" name="description" cols="40" rows="5" maxlength="200" minlength="20"></textarea>
-                    <button  id="newComment" class="submit"  type = "submit" >Send</button>
+                    <button  id="newComment" class="submit"  type = "submit"  onmousedown="sendComment()">Send</button>
                 </div>
             </form>
         </div>
@@ -29,64 +31,5 @@
 </div>
 <div th:text="${topic.getDescription()}"> </div>
 <div id="showComments"></div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        let nameTopic = $("#nameTopic").val();
-        console.log(nameTopic);
-        $.ajax({
-            url: "/showComments/",
-            type: 'GET',
-            data: {nameTopic},
-            dataType: 'json',
-
-            success:
-                function (response) {
-                    console.log(response)
-                    for (const singleComment of response) {
-                        let present = $('<div/>',{
-                            text:  singleComment.text
-                        });
-                        $("#showComments").append(present);
-                    }
-                },
-            error: function (err) {
-                console.log(err)
-            }
-        })
-    });
-</script>
-<script>
-    $("#newComment").click(function (event) {
-        $("#showComments").empty();
-        let nameTopic = $("#nameTopic").val();
-        let textComment = $("#textComment").val();
-
-        $.ajax({
-            url: "/newComment/",
-            type: 'POST',
-            data: {nameTopic, textComment},
-            dataType: 'json',
-            cache: false,
-            timeout: 600000,
-            success:
-                function (response) {
-                    console.log(response)
-                    for (const singleComment of response) {
-                        let present = $('<div/>',{
-                            text:  singleComment.text
-                        });
-                        $("#showComments").append(present);
-                    }
-                },
-            error: function (err) {
-                console.log(err)
-            }
-        })
-    });
-
-</script>
-
 </body>
 </html>
