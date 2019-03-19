@@ -1,11 +1,9 @@
-package com.krymymiuk.forum.model;
+package com.krymymiuk.forum.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "users_info")

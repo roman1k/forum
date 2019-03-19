@@ -1,4 +1,4 @@
-package com.krymymiuk.forum.model;
+package com.krymymiuk.forum.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -45,7 +45,7 @@ public class User implements UserDetails {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = Role.ROLE_USER;
+        this.role = Role.ADMIN;
         isAccountNonExpired = true;
         isAccountNonLocked =true;
         isCredentialsNonExpired = true;

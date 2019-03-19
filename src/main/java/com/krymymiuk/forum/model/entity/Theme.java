@@ -1,4 +1,4 @@
-package com.krymymiuk.forum.model;
+package com.krymymiuk.forum.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

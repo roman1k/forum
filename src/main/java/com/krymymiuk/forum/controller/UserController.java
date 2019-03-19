@@ -1,7 +1,7 @@
 package com.krymymiuk.forum.controller;
 
-import com.krymymiuk.forum.model.Theme;
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.Theme;
+import com.krymymiuk.forum.model.entity.User;
 import com.krymymiuk.forum.service.ThemeService;
 import com.krymymiuk.forum.service.TopicService;
 import com.krymymiuk.forum.service.UserService;

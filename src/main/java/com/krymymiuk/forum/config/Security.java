@@ -13,9 +13,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 public class Security extends WebSecurityConfigurerAdapter {
+
     @Autowired
     @Qualifier("userServiceImpl")
     private UserDetailsService userDetailsService;
@@ -26,9 +30,9 @@ public class Security extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/images/**", "/css/**", "/registration", "/newUser","/activate/**" ,"/formLogin", "/general", "/theme/**", "/topic/**", "/showComments")
+                .antMatchers( "/", "/images/**", "/css/**", "/registration", "/newUser","/activate/**" ,"/formLogin", "/general", "/theme/**", "/topic/**", "/showComments")
                 .permitAll()
-                .antMatchers("/admin1/**", "/admin1").hasRole("ADMIN")
+                .antMatchers("/admin/**", "/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -47,6 +51,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();

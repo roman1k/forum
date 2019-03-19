@@ -1,6 +1,6 @@
 package com.krymymiuk.forum.dao;
 
-import com.krymymiuk.forum.model.Topic;
+import com.krymymiuk.forum.model.entity.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

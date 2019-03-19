@@ -1,8 +1,8 @@
 package com.krymymiuk.forum.controller;
 
-import com.krymymiuk.forum.model.Theme;
-import com.krymymiuk.forum.model.Topic;
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.Theme;
+import com.krymymiuk.forum.model.entity.Topic;
+import com.krymymiuk.forum.model.entity.User;
 import com.krymymiuk.forum.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

@@ -2,7 +2,7 @@ package com.krymymiuk.forum.service;
 
 
 
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 

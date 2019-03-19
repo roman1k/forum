@@ -2,8 +2,8 @@ package com.krymymiuk.forum.service.impl;
 
 import com.krymymiuk.forum.dao.UserDAO;
 import com.krymymiuk.forum.dao.UserInfoDAO;
-import com.krymymiuk.forum.model.User;
-import com.krymymiuk.forum.model.UserInfo;
+import com.krymymiuk.forum.model.entity.User;
+import com.krymymiuk.forum.model.entity.UserInfo;
 import com.krymymiuk.forum.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,8 +1,8 @@
 package com.krymymiuk.forum.service.impl;
 
 import com.krymymiuk.forum.dao.ThemeDAO;
-import com.krymymiuk.forum.model.Theme;
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.Theme;
+import com.krymymiuk.forum.model.entity.User;
 import com.krymymiuk.forum.service.ThemeService;
 import com.krymymiuk.forum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

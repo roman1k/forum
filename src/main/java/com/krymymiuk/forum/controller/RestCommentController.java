@@ -1,9 +1,9 @@
 package com.krymymiuk.forum.controller;
 
 
-import com.krymymiuk.forum.model.Comment;
-import com.krymymiuk.forum.model.Topic;
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.Comment;
+import com.krymymiuk.forum.model.entity.Topic;
+import com.krymymiuk.forum.model.entity.User;
 import com.krymymiuk.forum.service.CommentService;
 import com.krymymiuk.forum.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
-import java.util.Set;
 
 
 @RestController

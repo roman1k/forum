@@ -1,8 +1,8 @@
 package com.krymymiuk.forum.controller;
 
-import com.krymymiuk.forum.model.Theme;
-import com.krymymiuk.forum.model.Topic;
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.Theme;
+import com.krymymiuk.forum.model.entity.Topic;
+import com.krymymiuk.forum.model.entity.User;
 import com.krymymiuk.forum.service.ThemeService;
 import com.krymymiuk.forum.service.TopicService;
 import com.krymymiuk.forum.service.UserService;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
 import java.util.Set;
 
 

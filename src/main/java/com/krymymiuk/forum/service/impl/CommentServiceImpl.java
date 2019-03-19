@@ -1,9 +1,9 @@
 package com.krymymiuk.forum.service.impl;
 
 import com.krymymiuk.forum.dao.CommentDAO;
-import com.krymymiuk.forum.model.Comment;
-import com.krymymiuk.forum.model.Topic;
-import com.krymymiuk.forum.model.User;
+import com.krymymiuk.forum.model.entity.Comment;
+import com.krymymiuk.forum.model.entity.Topic;
+import com.krymymiuk.forum.model.entity.User;
 import com.krymymiuk.forum.service.CommentService;
 import com.krymymiuk.forum.service.TopicService;
 import com.krymymiuk.forum.service.UserService;
