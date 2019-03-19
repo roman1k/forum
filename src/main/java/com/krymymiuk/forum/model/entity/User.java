@@ -20,7 +20,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role =Role.ROLE_ADMIN;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonBackReference
     private UserInfo userInfo;
@@ -45,7 +45,6 @@ public class User implements UserDetails {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = Role.ADMIN;
         isAccountNonExpired = true;
         isAccountNonLocked =true;
         isCredentialsNonExpired = true;
@@ -59,7 +58,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add( new SimpleGrantedAuthority(role.name()));
+        authorities.add( new SimpleGrantedAuthority(getRole().name()));
         return authorities;
     }
 
