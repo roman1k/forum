@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Topic {
     private  String description;
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true )
     @JsonManagedReference
-    private Set<Comment> comments;
+    private List<Comment> comments;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "autor_id", nullable = false)
     @JsonBackReference
@@ -70,11 +71,11 @@ public class Topic {
         this.theme = theme;
     }
 
-    public Set<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 

@@ -29,7 +29,7 @@ public class User implements UserDetails {
     private Set<Theme>  themes;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private Set<Comment>  comments;
+    private List<Comment>  comments;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true )
     @JsonManagedReference
     private Set<Topic>  topics;
@@ -109,11 +109,11 @@ public class User implements UserDetails {
         this.themes = themes;
     }
 
-    public Set<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(Set<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
